@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testes</title>
+    <script>
+        //Teste1
+        function fibnoacci(n){
+            let a = 0, b = 1;
+            while (a < n){
+                let aux = a;
+                a = b;
+                b = aux + b; 
+            }
+            return a === n;
+        }
+        function teste1Func(){
+            const n = parseInt(document.getElementById('teste1-input').value);
+            const result = fibnoacci(n);
+            document.getElementById('teste1-result').textContent = result ? 
+            `O número ${n} pertence à sequência de Fibonacci.` :
+            `O número ${n} NÃO pertence à sequência de Fibonacci.`;
+        }
+        //Teste2
+        function quantosA(text){
+            const lowerText = text.toLowerCase();
+            let cont = 0;
+            for (let i = 0; i < lowerText.length; i++) {
+                if (lowerText[i] === 'a') {
+                    cont++;
+                }
+            }
+            return cont;
+        }
+
+        function teste2Func(){
+            const text = document.getElementById('teste2-input').value;
+            const result = quantosA(text);
+            document.getElementById('teste2-result').textContent =  `A letra 'a' aparece ${result} vezes no texto.`;
+        }
+        //Teste3
+        function teste3Func(){
+            let INDICE = 12, SOMA = 0, K = 1;
+            while (K < INDICE) {
+                K = K + 1;
+                SOMA = SOMA + K;
+            }
+            document.getElementById('teste3-result').textContent = `O valor da variável SOMA será ${SOMA}`;
+        }
+
+        //Teste4
+        function teste4Func(){
+            document.getElementById('teste4-result1').textContent = `1, 3, 5, 7, 9  -> Sequencia de impares`;
+            document.getElementById('teste4-result2').textContent = `2, 4, 8, 16, 32, 64, 128  -> sequencia de multiplição por 2`;
+            document.getElementById('teste4-result3').textContent = `0, 1, 4, 9, 16, 25, 36, 49   -> sequencia do quadrado de cada numero`;
+            document.getElementById('teste4-result4').textContent = `4, 16, 36, 64, 100 ->  sequencia do quadrado dos numeros pares`;
+            document.getElementById('teste4-result5').textContent = `1, 1, 2, 3, 5, 8, 13 ->  sequencia de fibnoacci`;
+            document.getElementById('teste4-result6').textContent = `2, 10, 12, 16, 17, 18, 19, ->  possivelmente é o 20, mas não encontrei o padrão` ;
+        }
+
+        //Teste5
+        function teste5Func(){
+            document.getElementById('teste5-result').textContent = `Ligaria primeiramente o interruptor X e deixaria um tempo, até a lampada aquecer. Após isso desligaria o interruptor X e ligaria o Y e iria até uma das salas verificar: se a lampada estiver acesa, pertence ao interruptor Y, se estiver apagada e quente (ao encostar) pertence ao interruptor X e se estiver apagada e fria pertence ao interruptor Z. Com isso descoberto, é só ligar um dos dois interruptores que sobrarem e ir em uma das duas salas restantes, verificando conforme o interruptor e se a lampada estiver acesa ou apagada na respectiva sala.`;
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        <h1>1) Dado a sequência de Fibonacci, onde se inicia por 0 e 1 e o próximo valor sempre será a soma dos 2 valores anteriores (exemplo: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34...), escreva um programa na linguagem que desejar onde, informado um número, ele calcule a sequência de Fibonacci e retorne uma mensagem avisando se o número informado pertence ou não a sequência.</h1>
+        <p><b>IMPORTANTE: Esse número pode ser informado através de qualquer entrada de sua preferência ou pode ser previamente definido no código;</b></p>
+        <div class="teste1"> 
+            <input type="number" id="teste1-input" placeholder="Insira um numero"> 
+            <button onclick="teste1Func()">Verificar</button>
+            <p id="teste1-result"></p>
+        </div>
+    </div>
+    <div>
+        <h1>2) Escreva um programa que verifique, em uma string, a existência da letra ‘a’, seja maiúscula ou minúscula, além de informar a quantidade de vezes em que ela ocorre.</h1>
+        <p><b>IMPORTANTE: Essa string pode ser informada através de qualquer entrada de sua preferência ou pode ser previamente definida no código;</b></p>
+        <div class="teste2"> 
+            <input type="text" id="teste2-input" placeholder="Insira o texto"> 
+            <button onclick="teste2Func()">Verificar</button>
+            <p id="teste2-result"></p>
+        </div>
+    </div>
+    <div>
+        <h1>3) Observe o trecho de código abaixo: int INDICE = 12, SOMA = 0, K = 1; enquanto K < INDICE faça { K = K + 1; SOMA = SOMA + K; } imprimir(SOMA);</h1>
+        <p><b>Ao final do processamento, qual será o valor da variável SOMA?</b></p>
+        <div class="teste3"> 
+            <button onclick="teste3Func()">Verificar a Resposta</button>
+            <p id="teste3-result"></p>
+        </div>
+    </div>
+    <div>
+        <h1>4) Descubra a lógica e complete o próximo elemento:</h1>
+        <div class="teste4"> 
+            <p><b>a) 1, 3, 5, 7, ___</b></p>
+            <p id="teste4-result1"></p>
+            <p><b>b) 2, 4, 8, 16, 32, 64, ____</b></p>
+            <p id="teste4-result2"></p>
+            <p><b>c) 0, 1, 4, 9, 16, 25, 36, ____</b></p>
+            <p id="teste4-result3"></p>
+            <p><b>d) 4, 16, 36, 64, ____</b></p>
+            <p id="teste4-result4"></p>
+            <p><b>e) 1, 1, 2, 3, 5, 8, ____</b></p>
+            <p id="teste4-result5"></p>
+            <p><b>f) 2, 10, 12, 16, 17, 18, 19, ____</b></p>
+            <p id="teste4-result6"></p>
+
+            <button onclick="teste4Func()">Verificar a Resposta</button>
+        </div>
+    </div>
+    <div>
+        <h1>5) Você está em uma sala com três interruptores, cada um conectado a uma lâmpada em salas diferentes. Você não pode ver as lâmpadas da sala em que está, mas pode ligar e desligar os interruptores quantas vezes quiser. Seu objetivo é descobrir qual interruptor controla qual lâmpada. Como você faria para descobrir, usando apenas duas idas até uma das salas das lâmpadas, qual interruptor controla cada lâmpada?</h1>
+        <div class="teste5"> 
+            <button onclick="teste5Func()">Verificar a Resposta</button> 
+            <p id="teste5-result"></p>  
+        </div>
+    </div>
+    
+</body>
+</html>
